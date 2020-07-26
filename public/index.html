@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <div class="containerVid">
+    <video src="img/videoplayback.mp4" loop autoplay muted></video>
+  </div>
+
+  <div class="content">
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="">| CovidHelp</a>
+      </ul>
+      <!-- Links -->
+    </nav>
+    <!--/.Navbar-->
+  </div>
+
+  <div class="content">
+    <!--/.Navbar-->
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-12 col-sm-12 col-md-12">
+          <div class="jumbotron  size text-center">
+            <h2 class="display-4">Welcome to CovidHelp</h2>
+            <p class="lead">
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col" class="num" style="color:black">Cases</th>
+                    <th scope="col" class="num" style="color: green">Recoverd</th>
+                    <th scope="col" class="num" style="color:red">Deaths</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="textTr">
+                    <td class="num" id ="casesTxt">unavailable</td>
+                    <td class="num" id="recoveredTxt" >unavailable</td>
+                    <td class="num" id="deathTxt">unavailable</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
+            <hr class="my-4">
+            <p>CovidHelp is a website to find where covid-19 testing center are as well as the latest covid-19 news</p>
+            <a class="btn btn-primary btn-lg" href="AuthSection/LoginMethods.html" role="button">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/covid-19Global.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Clincs</title>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/authState.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    </head>
+<body>
+        <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="">| CovidHelp</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="../../home.html">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../chat.html">Chat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../contact.html">Contact</a>
+      </li>
+
+    </ul>
+    <!-- Links -->
+  </div>
+  <!-- Collapsible content -->
+</nav>
+<!--/.Navbar-->
+    <br>
+  <!--guideLines-->
+
+  <!-- Nav tabs -->
+<ul class="nav nav-tabs md-tabs nav-justified primary-color" role="tablist">
+  
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#panel555" role="tab">
+        <i class="fas fa-user pr-2"></i>Taking care of your mental and physical health during the COVID-19 pandemic</a>
+    </li>
+  </ul>
+  <!-- Nav tabs -->
+  
+  <!-- Tab panels -->
+  <div class="tab-content">
+    <div class=" jumbotron ">
+    <!-- Panel 1 -->
+    <div class="tab-pane fade in show active" id="panel555" role="tabpanel">
+  
+      <!-- Nav tabs -->
+      <div class="row">
+        <div class="col-md-3">
+          <ul class="nav md-pills pills-primary flex-column" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#panel21" role="tab">If you are in crisis
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#panel22" role="tab">Fear, stress and worry are normal in a crisis
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#panel23" role="tab">Tips for taking care of yourself
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <!-- Tab panels -->
+          <div class="tab-content vertical">
+            <!-- Panel 1 -->
+            <div class="tab-pane fade in show active" id="panel21" role="tabpanel">
+                <h2 id="_If_you_are">If you are in crisis</h2>
+
+            <p>If you are in immediate danger or need urgent medical support, call 911.</p>
+
+            <p>If you are experiencing gender-based violence, you can <a href="https://cfc-swc.gc.ca/violence/knowledge-connaissance/info-en.html?utm_source=canada-covid&amp;utm_medium=links&amp;utm_content=covid-1920&amp;utm_campaign=wage-en">access a crisis line</a> in your province or territory. </p>
+
+
+            <p>You may also access support workers, social workers, psychologists and other professionals for confidential chat sessions or phone calls by texting WELLNESS to:</p>
+
+            <ul>
+                <li>686868 for youth</li>
+                <li>741741 for adults</li>
+            </ul>
+
+            <p>The <a href="https://ca.portal.gs/" rel="external">Wellness Together Canada portal for mental wellness and substance use issues</a> also offers a wide range of resources and support for Canadians.</p>
+            </div>
+            <!-- Panel 1 -->
+            <!-- Panel 2 -->
+            <div class="tab-pane fade" id="panel22" role="tabpanel">
+                <h2 id="fear">Fear, stress and worry are normal in a crisis</h2>
+                <p>The COVID-19 pandemic has resulted in many changes. You might feel like you're no longer in control of things. It is normal to feel sad, stressed, confused, scared or worried. People react in different ways. Some common feelings include:</p>
+
+                <ul>
+                    <li>a sense of being socially excluded or judged</li>
+                    <li>concern about your children's education and well-being</li>
+                    <li>fear of getting sick with COVID-19 or of making others sick</li>
+                    <li>worry about losing your job, not being able to work or finances</li>
+                    <li>fear of being apart from loved ones due to isolation or physical distancing</li>
+                    <li>helplessness, boredom, loneliness and depression due to isolation or physical distancing</li>
+                </ul>
+              
+            </div>
+            <div class="tab-pane fade" id="panel23" role="tabpanel">
+                <h2 id="_Tips_for_taking">Tips for taking care of yourself</h2>
+                <ul>
+                    <li>Stay informed but take breaks from social media and the news.</li>
+                    <li>Practise <a href="/en/public-health/services/publications/diseases-conditions/social-distancing.html">physical distancing</a>, but stay socially connected to friends and family through:
+                        <ul>
+                            <li>email</li>
+                            <li>phone calls</li>
+                            <li>video chats</li>
+                            <li>social media</li>
+                        </ul>
+                    </li>
+                    <li>Practise mindfulness by:
+                        <ul>
+                            <li>stretching</li>
+                            <li>meditating</li>
+                            <li>taking deep breaths</li>
+                        </ul>
+                    </li>
+                    <li>Try to:
+                        <ul>
+                            <li><a href="/en/health-canada/services/food-nutrition/healthy-eating/covid-19.html">eat healthy meals</a></li>
+                            <li>exercise regularly</li>
+                            <li>get plenty of sleep</li>
+                        </ul>
+                    </li>
+                    <li>Follow <a href="/en/health-canada/services/food-nutrition/food-safety/covid19.html">safe food handling and cooking practices</a> to keep you and your family safe by killing the virus and lowering your risk of infection. </li>
+
+                <li>Think about how to use any unexpected flexibility in your daily routine.</li>
+                <li>Focus on the positive aspects of your life and things you can control.</li>
+                <li>Be kind and compassionate to yourself and others.</li>
+                <li>If you can, limit your use of substances.
+                    <ul>
+                    <li>If you do use substances, practise safer use and good hygiene.</li>
+                    </ul>
+                </li>
+                </ul>
+
+            </div>
+            <!-- Panel 3 -->
+
+          </div>
+        </div>
+      </div>
+      <!-- Nav tabs -->
+  
+    </div>
+    <!-- Panel 1 -->
+  </div>
+</div>
+  <!-- Tab panels -->
+    <!--channel-->
+    <div class="container">
+          <!--searchbar-->
+    <form class="form-inline mr-auto">
+      <input class="form-control" id="listSearch" type="text"  placeholder="Type something to search list items">
+    </form>
+    <div class="row no-gutters">
+        <div class="col-12 col-sm-12 col-md-12">
+        <div id="channel">
+        </div>
+        </div>
+    </div>
+    </div>    
+    <script src="../../js/physicalActivites.js"></script>
+</body>
+</html>

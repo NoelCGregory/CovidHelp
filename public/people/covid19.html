@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Clincs</title>
+    <!--Js Files-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/authState.js"></script>
+    <!--LeafLet.js-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+      <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <!--Style Sheet-->
+    <link rel="stylesheet" href="../css/style.css">
+    <!--MDB Lib-->
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<body>
+         <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="">| CovidHelp</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="../home.html">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../chat.html">Chat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../contact.html">Contact</a>
+      </li>
+
+    </ul>
+    <!-- Links -->
+  </div>
+  <!-- Collapsible content -->
+</nav>
+<!--/.Navbar-->
+
+  
+  <!--Clincs-->
+  <div class="container">
+    <!--searchbar-->
+    <form class="form-inline mr-auto">
+      <input class="form-control" id="listSearchSm" type="text"  placeholder="Type something to search list items">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="customSwitches" onclick="toggleSwitch()">
+        <label class="custom-control-label" for="customSwitches">Switch To Covid-19 Stats</label>
+      </div>
+      <label class="label" id="label">Select Place: </label>
+      <select id="placesNews" class=" btn btn-primary dropdown-toggle mr-4" title="Select Places"><option value="global">global</option><option value="AU">AU</option><option value="CA">CA</option><option value="CA-AB">CA-AB</option><option value="CA-BC">CA-BC</option><option value="CA-NB">CA-NB</option><option value="CA-ON">CA-ON</option><option value="CA-QC">CA-QC</option><option value="CH">CH</option><option value="CN">CN</option><option value="DE">DE</option><option value="ES">ES</option><option value="JP">JP</option><option value="KR">KR</option><option value="SE">SE</option><option value="NL">NL</option><option value="IT">IT</option><option value="FR">FR</option><option value="GB">GB</option><option value="SG">SG</option><option value="US">US</option><option value="US-AZ">US-AZ</option><option value="US-CA">US-CA</option><option value="US-CO">US-CO</option><option value="US-CT">US-CT</option><option value="US-FL">US-FL</option><option value="US-GA">US-GA</option><option value="US-HI">US-HI</option><option value="US-IL">US-IL</option><option value="US-IN">US-IN</option><option value="US-IA">US-IA</option><option value="US-KS">US-KS</option><option value="US-KY">US-KY</option><option value="US-LA">US-LA</option><option value="US-MD">US-MD</option><option value="US-MA">US-MA</option><option value="US-MN">US-MN</option><option value="US-MO">US-MO</option><option value="US-NE">US-NE</option><option value="US-NV">US-NV</option><option value="US-NH">US-NH</option><option value="US-NJ">US-NJ</option><option value="US-NY">US-NY</option><option value="US-NC">US-NC</option><option value="US-OH">US-OH</option><option value="US-OK">US-OK</option><option value="US-OR">US-OR</option><option value="US-PA">US-PA</option><option value="US-RI">US-RI</option><option value="US-SC">US-SC</option><option value="US-TN">US-TN</option><option value="US-TX">US-TX</option><option value="US-UT">US-UT</option><option value="US-VT">US-VT</option><option value="US-VA">US-VA</option><option value="US-WA">US-WA</option><option value="US-DC">US-DC</option><option value="US-WI">US-WI</option><option value="US-DE">US-DE</option><option value="US-MI">US-MI</option><option value="US-NM">US-NM</option><option value="US-SD">US-SD</option><option value="US-AR">US-AR</option><option value="US-MT">US-MT</option><option value="US-MS">US-MS</option><option value="US-WY">US-WY</option><option value="US-ND">US-ND</option><option value="US-ME">US-ME</option><option value="US-AK">US-AK</option></select>
+    </form>
+    <div class="row no-gutters">
+      <div class="col-12 col-sm-12 col-md-12">
+        <div id="statsDiv">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitchesMap" onclick="toggleSwitchToMap()">
+            <label class="custom-control-label" for="customSwitchesMap">Switch To Map</label>
+          </div>
+          <div id="mapDiv">
+            <div id="mapidStats"></div>
+          </div>
+          <div id="stats">
+        </div>
+        </div>
+        <div id="news">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/covid-19.js"></script>
+</body>
+</html>
