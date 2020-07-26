@@ -1,16 +1,16 @@
-const clincDiv = document.getElementById('clincs');
-const mapDiv = document.getElementById('map');
-const search = document.getElementById('listSearch');
+const clincDiv = document.getElementById("clincs");
+const mapDiv = document.getElementById("map");
+const search = document.getElementById("listSearch");
 let dataJson = null;
 
-search.addEventListener('keyup',e =>{
-    if(dataJson == null){
-        getClincs(false);
-    }
-    const searchString = e.target.value;
-    const filteredData = dataJson.filter(character =>{
-        let tempName =character.attributes.USER_Name;
-        if(tempName == null){
+search.addEventListener("keyup", e => {
+  if (dataJson == null) {
+    getClincs(false);
+  }
+  const searchString = e.target.value;
+  const filteredData = dataJson.filter(character => {
+    let tempName = character.attributes.USER_Name;
+    if (tempName == null){
             let  tempNotes =character.attributes.USER_Notes;
             return tempNotes.toLowerCase().indexOf(searchString.toLowerCase()) > -1;
         }else{

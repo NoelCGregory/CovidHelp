@@ -1,475 +1,1065 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find Clincs</title>
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/authState.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
     <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+      rel="stylesheet"
+    />
 
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
+    ></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
+    ></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-    </head>
-<body>
-           <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
+    ></script>
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="">| CovidHelp</a>
 
-  <!-- Navbar brand -->
-  <a class="navbar-brand" href="">| CovidHelp</a>
+      <!-- Collapse button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#basicExampleNav"
+        aria-controls="basicExampleNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <!-- Collapse button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <!-- Collapsible content -->
-  <div class="collapse navbar-collapse" id="basicExampleNav">
-
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="../../home.html">Home
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../chat.html">Chat</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../contact.html">Contact</a>
-      </li>
-
-    </ul>
-    <!-- Links -->
-  </div>
-  <!-- Collapsible content -->
-</nav>
-<!--/.Navbar-->
-
-  <!--Covid Test-->
-  <!-- Jumbotron -->
-<div class="jumbotron text-center">
-
-    <!-- Title -->
-    <h2 class="card-title h2">Covid-19 Self Assessment</h2>
-  
-    <!-- Grid row -->
-    <div class="row d-flex justify-content-center">
-  
-      <!-- Grid column -->
-      <div class="col-xl-7 pb-2">
-  
-        <p class="card-text">This tool is designed to help you make decisions about seeking appropriate medical care if you are concerned about the coronavirus (COVID-19). This tool is not intended to provide a diagnosis or provide treatment of disease or other conditions.</p>
-  
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="basicExampleNav">
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../../home.html"
+              >Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../chat.html">Chat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../contact.html">Contact</a>
+          </li>
+        </ul>
+        <!-- Links -->
       </div>
-      <!-- Grid column -->
-  
-    </div>
-    <!-- Grid row -->
-  
-    <hr class="my-4">
-  
-    <div class="pt-2">
+      <!-- Collapsible content -->
+      <form class="form-inline my-1">
+        <button class="btn btn-outline-white btn-sm my-0" onclick="logout();" type="submit">Logout</button>
+      </form>
+    </nav>
+    <!--/.Navbar-->
+
+    <!--Covid Test-->
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center">
+      <!-- Title -->
+      <h2 class="card-title h2">Covid-19 Self Assessment</h2>
+
+      <!-- Grid row -->
+      <div class="row d-flex justify-content-center">
+        <!-- Grid column -->
+        <div class="col-xl-7 pb-2">
+          <p class="card-text">
+            This tool is designed to help you make decisions about seeking
+            appropriate medical care if you are concerned about the coronavirus
+            (COVID-19). This tool is not intended to provide a diagnosis or
+            provide treatment of disease or other conditions.
+          </p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+
+      <hr class="my-4" />
+
+      <div class="pt-2">
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
-    Take Self Assement
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <iframe style="width:100%;border:none;min-height:90vh;margin-top:10px;" src="https://my.castlighthealth.com/corona-virus-testing-sites/self-assessment/assessment.html?from=ABC"></iframe>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#basicExampleModal"
+        >
+          Take Self Assement
+        </button>
 
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="basicExampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <iframe
+                  style="width:100%;border:none;min-height:90vh;margin-top:10px;"
+                  src="https://my.castlighthealth.com/corona-virus-testing-sites/self-assessment/assessment.html?from=ABC"
+                ></iframe>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-    </div>
-  
-  </div>
-  <!-- Jumbotron -->
+    <!-- Jumbotron -->
 
-  <!--guideLines-->
-<div class="card"></div>
-  <!-- Nav tabs -->
-<ul class="nav nav-tabs md-tabs nav-justified primary-color" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#panel555" role="tab">
-        <i class="fas fa-user pr-2"></i>Symptoms and treatment</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#panel666" role="tab">
-        <i class="fas fa-user pr-2"></i>Prevention and risks</a>
-    </li>
-  </ul>
-  <!-- Nav tabs -->
-  
-  <!-- Tab panels -->
-  <div class="tab-content">
-  
-    <!-- Panel 1 -->
-    <div class="tab-pane fade in show active" id="panel555" role="tabpanel">
-  
-      <!-- Nav tabs -->
-      <div class="row">
-        <div class="col-md-3">
-          <ul class="nav md-pills pills-primary flex-column" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#panel21" role="tab">Symptoms of COVID-19
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#panel22" role="tab">If you or your child become ill
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#panel23" role="tab">If you have tested positive
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-9">
-          <!-- Tab panels -->
-          <div class="tab-content vertical">
-            <!-- Panel 1 -->
-            <div class="tab-pane fade in show active" id="panel21" role="tabpanel">
-                <p>Symptoms of COVID-19 can vary from person to person. Symptoms may also vary in different age groups. Some of the more commonly reported symptoms include:</p>
+    <!--guideLines-->
+    <div class="card"></div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs md-tabs nav-justified primary-color" role="tablist">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          data-toggle="tab"
+          href="#panel555"
+          role="tab"
+        >
+          <i class="fas fa-user pr-2"></i>Symptoms and treatment</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#panel666" role="tab">
+          <i class="fas fa-user pr-2"></i>Prevention and risks</a
+        >
+      </li>
+    </ul>
+    <!-- Nav tabs -->
+
+    <!-- Tab panels -->
+    <div class="tab-content">
+      <!-- Panel 1 -->
+      <div class="tab-pane fade in show active" id="panel555" role="tabpanel">
+        <!-- Nav tabs -->
+        <div class="row">
+          <div class="col-md-3">
+            <ul class="nav md-pills pills-primary flex-column" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#panel21"
+                  role="tab"
+                  >Symptoms of COVID-19
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#panel22" role="tab"
+                  >If you or your child become ill
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#panel23" role="tab"
+                  >If you have tested positive
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-9">
+            <!-- Tab panels -->
+            <div class="tab-content vertical">
+              <!-- Panel 1 -->
+              <div
+                class="tab-pane fade in show active"
+                id="panel21"
+                role="tabpanel"
+              >
+                <p>
+                  Symptoms of COVID-19 can vary from person to person. Symptoms
+                  may also vary in different age groups. Some of the more
+                  commonly reported symptoms include:
+                </p>
                 <ul>
                   <li>new or worsening cough</li>
                   <li>shortness of breath or difficulty breathing</li>
-                  <li>temperature equal to or over 38°C </li>
+                  <li>temperature equal to or over 38°C</li>
                   <li>feeling feverish</li>
                   <li>chills</li>
                   <li>fatigue or weakness</li>
                   <li>muscle or body aches</li>
                   <li>new loss of smell or taste</li>
                   <li>headache</li>
-                  <li>gastrointestinal symptoms (abdominal pain, diarrhea, vomiting)</li>
-                  <li>feeling very unwell<br>
+                  <li>
+                    gastrointestinal symptoms (abdominal pain, diarrhea,
+                    vomiting)
                   </li>
+                  <li>feeling very unwell<br /></li>
                 </ul>
-                <p>Children have been more commonly reported to have abdominal symptoms, and skin changes or rashes.</p>
+                <p>
+                  Children have been more commonly reported to have abdominal
+                  symptoms, and skin changes or rashes.
+                </p>
                 <p>In severe cases, infection can lead to death.</p>
-                <p>Symptoms  may take up to 14 days to appear after exposure to COVID-19. </p>
-                <p>Evidence indicates that the virus can be transmitted to others from someone who is infected but not showing symptoms. This includes people who:</p>
+                <p>
+                  Symptoms may take up to 14 days to appear after exposure to
+                  COVID-19.
+                </p>
+                <p>
+                  Evidence indicates that the virus can be transmitted to others
+                  from someone who is infected but not showing symptoms. This
+                  includes people who:
+                </p>
                 <ul>
                   <li>have not yet developed symptoms (pre-symptomatic)</li>
                   <li>never develop symptoms (asymptomatic)</li>
                 </ul>
-                <p>While experts know that these kinds of transmissions are happening among those in close contact or in close physical settings, it is not known to what extent. This means it is extremely important to follow the proven <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#p">preventative measures</a>.</p>
-            </div>
-            <!-- Panel 1 -->
-            <!-- Panel 2 -->
-            <div class="tab-pane fade" id="panel22" role="tabpanel">
+                <p>
+                  While experts know that these kinds of transmissions are
+                  happening among those in close contact or in close physical
+                  settings, it is not known to what extent. This means it is
+                  extremely important to follow the proven
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#p"
+                    >preventative measures</a
+                  >.
+                </p>
+              </div>
+              <!-- Panel 1 -->
+              <!-- Panel 2 -->
+              <div class="tab-pane fade" id="panel22" role="tabpanel">
                 <h2 id="i">If you or your child become ill</h2>
-                <p>If you are showing symptoms of COVID-19, reduce your contact with others:</p>
+                <p>
+                  If you are showing symptoms of COVID-19, reduce your contact
+                  with others:
+                </p>
                 <ul>
-                  <li><a href="/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html">isolate</a> yourself at home for 14 days to avoid spreading it to others
+                  <li>
+                    <a
+                      href="/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html"
+                      >isolate</a
+                    >
+                    yourself at home for 14 days to avoid spreading it to others
                     <ul>
-                      <li>if you live with others, stay in a separate room or keep a 2-metre distance</li>
+                      <li>
+                        if you live with others, stay in a separate room or keep
+                        a 2-metre distance
+                      </li>
                     </ul>
                   </li>
-                  <li>visit a health care professional or call your local <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms/provincial-territorial-resources-covid-19.html">public health authority</a> for information  on getting <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms/testing.html">tested</a>
+                  <li>
+                    visit a health care professional or call your local
+                    <a
+                      href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms/provincial-territorial-resources-covid-19.html"
+                      >public health authority</a
+                    >
+                    for information on getting
+                    <a
+                      href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms/testing.html"
+                      >tested</a
+                    >
                     <ul>
-                      <li>call ahead to tell them your symptoms and follow their instructions</li>
+                      <li>
+                        call ahead to tell them your symptoms and follow their
+                        instructions
+                      </li>
                     </ul>
                   </li>
                 </ul>
-                <p>Children who have mild COVID-19 symptoms are able to stay at home with a caregiver throughout their recovery without needing hospitalization. If you are caring for a child who has suspected or probable COVID-19, it is important to follow the <a href="/en/public-health/services/publications/diseases-conditions/how-to-care-for-child-with-covid-19-at-home-advice-for-caregivers.html">advice for caregivers</a>. This advice will help you protect yourself, others in your home, as well as others in the community.</p>
+                <p>
+                  Children who have mild COVID-19 symptoms are able to stay at
+                  home with a caregiver throughout their recovery without
+                  needing hospitalization. If you are caring for a child who has
+                  suspected or probable COVID-19, it is important to follow the
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/how-to-care-for-child-with-covid-19-at-home-advice-for-caregivers.html"
+                    >advice for caregivers</a
+                  >. This advice will help you protect yourself, others in your
+                  home, as well as others in the community.
+                </p>
                 <p>If you become sick while travelling back to Canada:</p>
                 <ul>
-                  <li>inform the flight attendant or a Canadian border services officer</li>
-                  <li>advise a Canada border services agent on arrival in Canada if you believe you were exposed to someone who was sick with COVID-19, even if you do not have symptoms
+                  <li>
+                    inform the flight attendant or a Canadian border services
+                    officer
+                  </li>
+                  <li>
+                    advise a Canada border services agent on arrival in Canada
+                    if you believe you were exposed to someone who was sick with
+                    COVID-19, even if you do not have symptoms
                     <ul>
-                      <li>this is required under the&nbsp;<em>Quarantine Act</em></li>
-                      <li>the Canada border services agent will provide instructions for you to follow</li>
+                      <li>
+                        this is required under the&nbsp;<em>Quarantine Act</em>
+                      </li>
+                      <li>
+                        the Canada border services agent will provide
+                        instructions for you to follow
+                      </li>
                     </ul>
                   </li>
                 </ul>
                 <h3>Check if you have been exposed</h3>
-                <p>Have you been on a recent flight, cruise, train, or at a public gathering? Check the listed <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice/exposure-flights-cruise-ships-mass-gatherings.html">exposure locations</a> to see if you may have been exposed to COVID-19.</p>
+                <p>
+                  Have you been on a recent flight, cruise, train, or at a
+                  public gathering? Check the listed
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice/exposure-flights-cruise-ships-mass-gatherings.html"
+                    >exposure locations</a
+                  >
+                  to see if you may have been exposed to COVID-19.
+                </p>
                 <h3>Take care of your mental health</h3>
-                <p>The COVID-19 pandemic is new and unexpected. This situation can be unsettling and can cause a sense of loss of control. It is normal to feel sad, stressed, confused, scared or worried in a crisis. Make sure to care for your <a href="/en/public-health/services/publications/diseases-conditions/taking-care-mental-health.html">mental and physical wellbeing</a> and to ask for help if you feel overwhelmed.</p>
-            </div>
-            <!-- Panel 2 -->
-            <!-- Panel 3 -->
-            <div class="tab-pane fade" id="panel23" role="tabpanel">
-                <h2 id="p">If you have  tested positive<strong> </strong></h2>
-                <p>If you’ve been tested for coronavirus and receive a  positive test result, you must <a href="/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html">isolate at home</a>, whether you have symptoms or not.</p>
-                <p>If you have symptoms (symptomatic), <strong>you must</strong></p>
+                <p>
+                  The COVID-19 pandemic is new and unexpected. This situation
+                  can be unsettling and can cause a sense of loss of control. It
+                  is normal to feel sad, stressed, confused, scared or worried
+                  in a crisis. Make sure to care for your
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/taking-care-mental-health.html"
+                    >mental and physical wellbeing</a
+                  >
+                  and to ask for help if you feel overwhelmed.
+                </p>
+              </div>
+              <!-- Panel 2 -->
+              <!-- Panel 3 -->
+              <div class="tab-pane fade" id="panel23" role="tabpanel">
+                <h2 id="p">If you have tested positive<strong> </strong></h2>
+                <p>
+                  If you’ve been tested for coronavirus and receive a positive
+                  test result, you must
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html"
+                    >isolate at home</a
+                  >, whether you have symptoms or not.
+                </p>
+                <p>
+                  If you have symptoms (symptomatic), <strong>you must</strong>
+                </p>
                 <ul>
-                  <li>isolate at home (as soon as your symptoms start), and  remain isolated for 14 days <strong>or</strong> as  directed by your public health authority</li>
+                  <li>
+                    isolate at home (as soon as your symptoms start), and remain
+                    isolated for 14 days <strong>or</strong> as directed by your
+                    public health authority
+                  </li>
                 </ul>
-                <p>If you <strong>do not have</strong> symptoms (asymptomatic) you must:</p>
+                <p>
+                  If you <strong>do not have</strong> symptoms (asymptomatic)
+                  you must:
+                </p>
                 <ul>
-                  <li>isolate at home as soon as you receive the  confirmed laboratory test, and remain isolated for 14 days <strong>or</strong> as directed by your public health authority</li>
-                  <li><strong>if you did not have symptoms when you got tested, but then develop  symptoms during your 14-day isolation period, you must restart your isolation  time &nbsp;</strong></li>
+                  <li>
+                    isolate at home as soon as you receive the confirmed
+                    laboratory test, and remain isolated for 14 days
+                    <strong>or</strong> as directed by your public health
+                    authority
+                  </li>
+                  <li>
+                    <strong
+                      >if you did not have symptoms when you got tested, but
+                      then develop symptoms during your 14-day isolation period,
+                      you must restart your isolation time &nbsp;</strong
+                    >
+                  </li>
                 </ul>
-                <p>Refer to your <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms/provincial-territorial-resources-covid-19.html">public health authority</a> to find out how many days you should remain in  isolation.</p>
+                <p>
+                  Refer to your
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms/provincial-territorial-resources-covid-19.html"
+                    >public health authority</a
+                  >
+                  to find out how many days you should remain in isolation.
+                </p>
+              </div>
+              <!-- Panel 3 -->
             </div>
-            <!-- Panel 3 -->
           </div>
         </div>
+        <!-- Nav tabs -->
       </div>
-      <!-- Nav tabs -->
-  
-    </div>
-    <!-- Panel 1 -->
-  
-    <!-- Panel 2 -->
-    <div class="tab-pane fade" id="panel666" role="tabpanel">
-  
+      <!-- Panel 1 -->
+
+      <!-- Panel 2 -->
+      <div class="tab-pane fade" id="panel666" role="tabpanel">
         <!-- Nav tabs -->
         <div class="row">
-            <div class="col-md-3">
-              <ul class="nav md-pills pills-primary flex-column" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#panel31" role="tab">Difference between quarantine (self-isolate) and isolate
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#panel32" role="tab">Preventing coronavirus
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#panel33" role="tab">Risks of getting coronavirus
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-9">
-              <!-- Tab panels -->
-              <div class="tab-content vertical">
-                <!-- Panel 1 -->
-                <div class="tab-pane fade in show active" id="panel31" role="tabpanel">
-                    <h2 id="self">Difference between quarantine (self-isolate) and isolate</h2>
-                    <p>There is a difference between advice to <a href="/en/public-health/services/publications/diseases-conditions/coronavirus-disease-covid-19-how-to-self-isolate-home-exposed-no-symptoms.html">quarantine</a> (self-isolate) and advice to <a href="/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html">isolate</a>. These measures are in place to protect the health and safety of Canadians.</p>
-                    <p><a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice.html#f">Additional restrictions apply to travellers returning to Canada</a>.</p>
-                    <h3>Quarantine (self-isolate)</h3>
-                    <p>Quarantine for 14 days if you have <strong>no symptoms</strong> and <strong>any</strong> of the following apply:</p>
-                    <ul>
-                      <li>you are returning from travel&nbsp;<strong>outside of Canada</strong> (mandatory quarantine)</li>
-                      <li>you had close contact with someone who has or is suspected to have COVID-19</li>
-                      <li>you have been told by the public health authority that you may have been exposed and need to quarantine</li>
-                    </ul>
-                    <h3 id="si">Isolate</h3>
-                    <p>You must isolate if <strong>any</strong> of the following apply:</p>
-                    <ul>
-                      <li>you have been diagnosed with COVID-19, or are waiting to hear the results of a lab test for COVID-19</li>
-                      <li>you have symptoms of COVID-19, even if mild</li>
-                      <li>you have been in contact with a suspected, probable or confirmed case of COVID-19</li>
-                      <li>you have been told by public health that you may have been exposed to COVID-19</li>
-                      <li>you have returned from travel outside Canada with symptoms of COVID-19 (mandatory)</li>
-                    </ul>
-                </div>
-                <!-- Panel 1 -->
-                <!-- Panel 2 -->
-                <div class="tab-pane fade" id="panel32" role="tabpanel">
-                    <h2 id="p">Preventing coronavirus</h2>
-                    <p><strong>Think you might have COVID-19?</strong><br>
-                    <p>Canadians should continue to think ahead about the actions that they can take to stay healthy and prevent the spread of COVID-19 in Canada. Measures to <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/measures-reduce-community.html">reduce COVID-19 in your community</a> are especially important as some areas begin to lift restrictions.</p>
-                    <p>As we continue to see transmission of the virus within different communities, we know that everyone must take precautions, even those who have not travelled outside of Canada.</p>
-                    <p>In an effort to prevent the spread of COVID-19 within communities and across the country, all Canadians are advised to:</p>
-                    <ul>
-                      <li>stay at home unless you have to go to work
-                        <ul>
-                          <li>talk to your employer about working at home if possible</li>
-                        </ul>
-                      </li>
-                    <li>avoid all non-essential trips in your community</li>
-                    <li>do not gather in groups</li>
-                    <li>limit contact with people at higher risk, such as older adults and those in poor health</li>
-                    <li>go outside to exercise but stay close to home</li>
-                    <li>if you leave your home, always keep a distance of at least 2 arms lengths (approximately 2 metres) from others
-                      <ul>
-                        <li>household contacts (people you live with) do not need to distance from each other unless they are sick or have travelled in the last 14 days</li>
-                      </ul>
-                    </li>
-                    </ul>
-                    <p><strong>You can go for a walk if you:</strong></p>
-                    <ul>
-                      <li>have not been diagnosed with COVID-19</li>
-                      <li>do not have symptoms of COVID-19</li>
-                      <li>have not travelled outside of Canada in the past 14 days</li>
-                      <li>are not in quarantine (self-isolating)</li>
-                      <li>are not isolating</li>
-                    </ul>
-                    <p>If you go out for a walk, do not congregate and always practise physical (social) distancing by keeping at least 2 metres apart from others at all times.</p>
-                    <h3 id="social">Physical (social) distancing</h3>
-                    <p>Together, we can slow the spread of COVID-19 by making a conscious effort to keep a physical distance between each other. <a href="/en/public-health/services/publications/diseases-conditions/social-distancing.html">Physical (social) distancing</a> is proven to be one of the most effective ways to reduce the spread of illness during an outbreak.</p>
-                    <p>This means making changes in your everyday routines to minimize close contact with others, including:</p>
-                    <ul>
-                      <li>avoiding crowded places and non-essential gatherings</li>
-                      <li>avoiding common greetings, such as handshakes</li>
-                      <li>limiting contact with people at higher risk like older adults and those in poor health</li>
-                      <li>keeping a distance of at least 2 arms-length (approximately 2 metres) from others</li>
-                    </ul>
-                    <h3 id="hygiene">Hygiene</h3>
-                    <p>Proper hygiene can help reduce the risk of infection or spreading infection to others:</p>
-                    <ul>
-                      <li>wash your hands often with soap and water for at least 20 seconds, especially after using the washroom and when preparing food
-                        <ul>
-                          <li>use alcohol-based <a href="/en/health-canada/services/drugs-health-products/disinfectants/covid-19/hand-sanitizer.html">hand sanitizer</a> if soap and water are not available</li>
-                        </ul>
-                      </li>
-                    <li>when coughing or sneezing:
-                      <ul>
-                        <li>cough or sneeze into a tissue or the bend of your arm, not your hand</li>
-                        <li>dispose of any tissues you have used as soon as possible in a lined waste basket and wash your hands afterwards</li>
-                      </ul>
-                    </li>
-                    <li>avoid touching your eyes, nose, or mouth with unwashed hands</li>
-                    </ul>
-                    <h3>Cleaning</h3>
-                    <p>Coronaviruses&nbsp;are one of the easiest types of viruses to kill with the appropriate disinfectant product when used according to the label directions. Health Canada has published a&nbsp;<a href="/en/health-canada/services/drugs-health-products/disinfectants/covid-19/list.html">list of hard surface disinfectants</a>&nbsp;that are likely to be effective for use against COVID-19.</p>
-                    <p>Although they do not claim to kill COVID-19, cleaners can play a role in limiting the transfer of microorganisms. Health Canada recommends cleaning high-touch hard surfaces often, using either regular household cleaners or diluted bleach according to the label directions. This bleach solution should be prepared according to the instructions on the label or in a ratio of 250 mL (1 cup) of water per 5 mL (1 teaspoon) of bleach. Directions are based on bleach that is 5% sodium hypochlorite, to give a 0.1% sodium hypochlorite solution. Never mix bleach with other chemical products and use it in a well-ventilated area. <a href="/en/health-canada/services/home-safety/household-chemical-safety.html">Special precautions</a> must be used when cleaning with bleach to avoid serious incidents.</p>
-                    <p>These surfaces include:</p>
-                    <ul>
-                      <li>toilets</li>
-                      <li>phones</li>
-                      <li>electronics</li>
-                    <li>door handles</li>
-                    <li>bedside tables</li>
-                    <li>television remotes</li>
-                    </ul>
-                    <p>Refer to the <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/cleaning-disinfecting.html">guidance on cleaning and disinfecting public spaces</a> for more information.</p>
-                    <h3 id="wm">Wearing masks or face coverings</h3>
-                    <p>Medical masks, including surgical, medical procedure face masks and respirators (like N95 masks), must be kept for health care workers and others providing direct care to COVID-19 patients.</p>
-                    <p>Wearing a non-medical mask or face covering while out in public is <strong>recommended</strong> for periods of time when it is not possible to consistently maintain a 2-metre physical distance from others, particularly in crowded public settings, such as:</p>
-                    <ul>
-                      <li>stores</li>
-                      <li>shopping areas</li>
-                    <li>public transportation</li>
-                    </ul>
-                    <p>Public health officials will make recommendations based on a number of factors, including the rates of infection and/or transmission in the community. Recommendations may vary from location to location.</p>
-                    <p>If you do choose to wear one, refer to the:</p>
-                    <ul>
-                      <li><a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/about-non-medical-masks-face-coverings.html">guidelines on wearing non-medical masks and how to make your own</a></li>
-                    <li><a href="http://www.phn-rsp.ca/sac-covid-ccs/index-eng.php" rel="external">COVID-19 Special Advisory Committee</a>'s recommendations on the <a href="http://www.phn-rsp.ca/sac-covid-ccs/wearing-masks-community-eng.php" rel="external">use of non-medical cloth masks or face coverings in community settings</a></li>
-                    </ul>
-                    <p>Masks alone will not prevent the spread of COVID-19. You must consistently and strictly adhere to <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#hygiene">good hygiene</a> and <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#p">public health measures</a>, including frequent <a href="/en/public-health/services/publications/diseases-conditions/reduce-spread-covid-19-wash-your-hands.html">hand washing</a> and <a href="/en/public-health/services/publications/diseases-conditions/social-distancing.html">physical (social) distancing</a>.</p>
-                </div>
-                <!-- Panel 2 -->
-                <!-- Panel 3 -->
-                <div class="tab-pane fade" id="panel33" role="tabpanel">
-                    <h2 id="r">Risks of getting coronavirus</h2>
-                    <p>COVID-19 is a serious health threat, and the situation is evolving daily. The risk will vary between and within communities, but given the increasing number of cases in Canada, the risk to Canadians is considered <strong>high</strong>.</p>
-                    <p>This does not mean that all Canadians will get the disease. It means that there is already a significant impact on our health care system. If we do not flatten the epidemic curve now, the increase of COVID-19 cases could impact health care resources available to Canadians.</p>
-                    <p>The risk for COVID-19 may be increased for certain settings such as:</p>
-                    <ul>
-                      <li><a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice.html#cruise">cruise ships</a></li>
-                      <li>crowded areas (such as public transit and shopping centres)</li>
-                      <li>gatherings (spiritual and cultural settings, theatres, sports arenas, festivals and conferences)</li>
-                    </ul>
-                    <h3>Check if you have been exposed</h3>
-                    <p>Have you been on a recent flight, cruise, train, or at a public gathering? Check the listed <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice/exposure-flights-cruise-ships-mass-gatherings.html">exposure locations</a> to see if you may have been exposed to COVID-19.</p>
-                    <h3>Vulnerable populations</h3>
-                    <p>There is an increased risk of more severe outcomes for Canadians:</p>
-                    <ul>
-                      <li>aged 65 and over</li>
-                      <li>with compromised immune systems</li>
-                      <li>with underlying medical conditions</li>
-                    </ul>
-                    <p>People who fall into these categories as <a href="/en/public-health/services/publications/diseases-conditions/vulnerable-populations-covid-19.html">vulnerable populations</a> should reconsider attending gatherings. This includes large gatherings and even smaller events in crowded or enclosed settings.</p>
-                    <p>If  you have <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms.html#s">symptoms</a>,  do  not attend a mass gathering, event or places where people gather. You could put  someone whose health is vulnerable at risk.</p>
-                    
-                    <h3 id="travellers">Travellers</h3>
-                    <p>The risk for getting COVID-19 may be increased for travellers. Canadians are advised to <a href="https://travel.gc.ca/travelling/health-safety/travel-health-notices/331">avoid all non-essential travel</a>. If you must travel, check the latest <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice.html">travel advice</a> before you leave.</p>
-                    <p>We will continue to adapt our risk assessment based on the latest data available.</p>
-                    <h3 id="pregnant">Pregnant women</h3>
-                    <p>Because COVID-19 is a new disease, we are still learning how it affects pregnant women. At this time, there is&nbsp;<strong>no evidence</strong> to suggest that pregnant women are at a greater risk for more serious outcomes related to COVID-19 or that their developing child could be negatively affected by COVID-19.</p>
-                    <p>You can protect yourself from becoming ill by taking the following precautions:</p>
-                    <ul>
-                      <li>stay home&nbsp;as much as possible, except for important medical appointments</li>
-                      <li>talk to your doctor, obstetrician or midwife&nbsp;about the possibility of telephone or videoconference appointments</li>
-                      <li>avoid unnecessary visitors&nbsp;to your home</li>
-                      <li><a href="/en/public-health/services/publications/diseases-conditions/reduce-spread-covid-19-wash-your-hands.html">wash your hands</a>&nbsp;often with soap and water for at least 20 seconds
-                        <ul>
-                          <li>use alcohol-based&nbsp;<a href="/en/health-canada/services/drugs-health-products/disinfectants/covid-19/hand-sanitizer.html">hand sanitizer</a>&nbsp;if soap and water are not available</li>
-                        </ul>
-                      </li>
-                      <li>practise&nbsp;<a href="/en/public-health/services/publications/diseases-conditions/social-distancing.html">physical distancing</a>&nbsp;by keeping a distance of at least 2 metres from others</li>
-                      <li>avoid touching&nbsp;your mouth, nose and eyes</li>
-                      <li>avoid crowded places and peak-hours</li>
-                      <li>make limited trips to the store for essentials</li>
-                      <li>avoid travel by public transit</li>
-                    </ul>
-                    <p>For more information, refer to our&nbsp;<a href="/en/public-health/services/publications/diseases-conditions/pregnancy-advise-mothers.html">advice for mothers on pregnancy, childbirth and caring for newborns</a>.</p>
-                    <p>If you are pregnant and concerned about COVID-19, speak to your health care provider.</p>
-                    <h3 id="products">Survival of coronaviruses on surfaces</h3>
-                    It is not certain how long COVID-19 survives on surfaces, but it seems to behave like other coronaviruses. Preliminary information on COVID-19 suggests that the virus may persist on surfaces for a few hours or up to several days depending on different conditions, such as:
-                    <ul>
-                      <li>temperature</li>
-                      <li>type of surface</li>
-                      <li>humidity of the environment</li>
-                    </ul>
-                    <p>Surfaces frequently touched with hands are most likely to be contaminated, including:</p>
-                    <ul>
-                      <li>tables</li>
-                      <li>handrails</li>
-                      <li>doorknobs</li>
-                      <li>electronics</li>
-                    <li>countertops</li>
-                    <li>light switches</li>
-                    <li>faucet handles</li>
-                    <li>cabinet handles</li>
-                    <li>elevator buttons</li>
-                    </ul>
-                    <p>Products shipped within or from outside of Canada could also be contaminated. However, because parcels generally take days or weeks to be delivered, and are shipped at room temperature, the risk of spread is <strong>low</strong>. There is no known risk of coronaviruses entering Canada on parcels or packages.</p>
-                    <p>To protect yourself from COVID-19, make sure to do the following when handling products shipped within or outside of Canada:</p>
-                    <ul>
-                      <li>use good <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#hygiene">hygiene measures</a></li>
-                      <li><a href="/en/health-canada/services/drugs-health-products/disinfectants/covid-19.html">regularly clean and disinfect surfaces</a></li>
-                      <li>do not touch your eyes, nose and mouth</li>
-                    </ul>
-                    <h3 id="food">Food</h3>
-                    <p>There is currently no evidence to suggest that food is a likely source or route of transmission of the virus and there are currently no reported cases of COVID-19 transmission through food. People are unlikely to be infected with the virus through food.</p>
-                    <p>Scientists and food safety authorities across the world are closely monitoring the spread of COVID-19.</p>
-                    <p>If we become aware of a potential food safety risk, appropriate actions will be taken to ensure the safety of Canada's food supply.</p>
-                    <p>Coronaviruses are killed by <a href="/en/health-canada/services/general-food-safety-tips/food-safety-you.html#a2">common cleaning and disinfection methods</a> and by cooking food to <a href="/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html">safe internal temperatures</a>.</p>
-                    <p>Learn more about&nbsp;<a href="/en/health-canada/services/food-nutrition/food-safety/covid19.html">food safety</a> and <a href="/en/health-canada/services/food-nutrition/healthy-eating/covid-19.html">healthy eating</a> during the COVID-19 pandemic.</p>
-                    <h3 id="animal-canada">Animals in Canada</h3>
-                    <p>The current spread of COVID-19 is a result of human-to-human transmission. There is no evidence to suggest that animals infected by humans are playing a role in the spread of this disease. Animals and COVID-19 is an area that continues to be studied by scientists.</p>
-                    <p>Learn how to <a href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/animals-covid-19.html">keep pets and livestock, as well as yourself, safe</a> during the COVID-19 pandemic.</p>
-                </div>
-                <!-- Panel 3 -->
+          <div class="col-md-3">
+            <ul class="nav md-pills pills-primary flex-column" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#panel31"
+                  role="tab"
+                  >Difference between quarantine (self-isolate) and isolate
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#panel32" role="tab"
+                  >Preventing coronavirus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#panel33" role="tab"
+                  >Risks of getting coronavirus
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-9">
+            <!-- Tab panels -->
+            <div class="tab-content vertical">
+              <!-- Panel 1 -->
+              <div
+                class="tab-pane fade in show active"
+                id="panel31"
+                role="tabpanel"
+              >
+                <h2 id="self">
+                  Difference between quarantine (self-isolate) and isolate
+                </h2>
+                <p>
+                  There is a difference between advice to
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/coronavirus-disease-covid-19-how-to-self-isolate-home-exposed-no-symptoms.html"
+                    >quarantine</a
+                  >
+                  (self-isolate) and advice to
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html"
+                    >isolate</a
+                  >. These measures are in place to protect the health and
+                  safety of Canadians.
+                </p>
+                <p>
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice.html#f"
+                    >Additional restrictions apply to travellers returning to
+                    Canada</a
+                  >.
+                </p>
+                <h3>Quarantine (self-isolate)</h3>
+                <p>
+                  Quarantine for 14 days if you have
+                  <strong>no symptoms</strong> and <strong>any</strong> of the
+                  following apply:
+                </p>
+                <ul>
+                  <li>
+                    you are returning from travel&nbsp;<strong
+                      >outside of Canada</strong
+                    >
+                    (mandatory quarantine)
+                  </li>
+                  <li>
+                    you had close contact with someone who has or is suspected
+                    to have COVID-19
+                  </li>
+                  <li>
+                    you have been told by the public health authority that you
+                    may have been exposed and need to quarantine
+                  </li>
+                </ul>
+                <h3 id="si">Isolate</h3>
+                <p>
+                  You must isolate if <strong>any</strong> of the following
+                  apply:
+                </p>
+                <ul>
+                  <li>
+                    you have been diagnosed with COVID-19, or are waiting to
+                    hear the results of a lab test for COVID-19
+                  </li>
+                  <li>you have symptoms of COVID-19, even if mild</li>
+                  <li>
+                    you have been in contact with a suspected, probable or
+                    confirmed case of COVID-19
+                  </li>
+                  <li>
+                    you have been told by public health that you may have been
+                    exposed to COVID-19
+                  </li>
+                  <li>
+                    you have returned from travel outside Canada with symptoms
+                    of COVID-19 (mandatory)
+                  </li>
+                </ul>
               </div>
+              <!-- Panel 1 -->
+              <!-- Panel 2 -->
+              <div class="tab-pane fade" id="panel32" role="tabpanel">
+                <h2 id="p">Preventing coronavirus</h2>
+                <p><strong>Think you might have COVID-19?</strong><br /></p>
+                <p>
+                  Canadians should continue to think ahead about the actions
+                  that they can take to stay healthy and prevent the spread of
+                  COVID-19 in Canada. Measures to
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/measures-reduce-community.html"
+                    >reduce COVID-19 in your community</a
+                  >
+                  are especially important as some areas begin to lift
+                  restrictions.
+                </p>
+                <p>
+                  As we continue to see transmission of the virus within
+                  different communities, we know that everyone must take
+                  precautions, even those who have not travelled outside of
+                  Canada.
+                </p>
+                <p>
+                  In an effort to prevent the spread of COVID-19 within
+                  communities and across the country, all Canadians are advised
+                  to:
+                </p>
+                <ul>
+                  <li>
+                    stay at home unless you have to go to work
+                    <ul>
+                      <li>
+                        talk to your employer about working at home if possible
+                      </li>
+                    </ul>
+                  </li>
+                  <li>avoid all non-essential trips in your community</li>
+                  <li>do not gather in groups</li>
+                  <li>
+                    limit contact with people at higher risk, such as older
+                    adults and those in poor health
+                  </li>
+                  <li>go outside to exercise but stay close to home</li>
+                  <li>
+                    if you leave your home, always keep a distance of at least 2
+                    arms lengths (approximately 2 metres) from others
+                    <ul>
+                      <li>
+                        household contacts (people you live with) do not need to
+                        distance from each other unless they are sick or have
+                        travelled in the last 14 days
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <p><strong>You can go for a walk if you:</strong></p>
+                <ul>
+                  <li>have not been diagnosed with COVID-19</li>
+                  <li>do not have symptoms of COVID-19</li>
+                  <li>
+                    have not travelled outside of Canada in the past 14 days
+                  </li>
+                  <li>are not in quarantine (self-isolating)</li>
+                  <li>are not isolating</li>
+                </ul>
+                <p>
+                  If you go out for a walk, do not congregate and always
+                  practise physical (social) distancing by keeping at least 2
+                  metres apart from others at all times.
+                </p>
+                <h3 id="social">Physical (social) distancing</h3>
+                <p>
+                  Together, we can slow the spread of COVID-19 by making a
+                  conscious effort to keep a physical distance between each
+                  other.
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/social-distancing.html"
+                    >Physical (social) distancing</a
+                  >
+                  is proven to be one of the most effective ways to reduce the
+                  spread of illness during an outbreak.
+                </p>
+                <p>
+                  This means making changes in your everyday routines to
+                  minimize close contact with others, including:
+                </p>
+                <ul>
+                  <li>avoiding crowded places and non-essential gatherings</li>
+                  <li>avoiding common greetings, such as handshakes</li>
+                  <li>
+                    limiting contact with people at higher risk like older
+                    adults and those in poor health
+                  </li>
+                  <li>
+                    keeping a distance of at least 2 arms-length (approximately
+                    2 metres) from others
+                  </li>
+                </ul>
+                <h3 id="hygiene">Hygiene</h3>
+                <p>
+                  Proper hygiene can help reduce the risk of infection or
+                  spreading infection to others:
+                </p>
+                <ul>
+                  <li>
+                    wash your hands often with soap and water for at least 20
+                    seconds, especially after using the washroom and when
+                    preparing food
+                    <ul>
+                      <li>
+                        use alcohol-based
+                        <a
+                          href="/en/health-canada/services/drugs-health-products/disinfectants/covid-19/hand-sanitizer.html"
+                          >hand sanitizer</a
+                        >
+                        if soap and water are not available
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    when coughing or sneezing:
+                    <ul>
+                      <li>
+                        cough or sneeze into a tissue or the bend of your arm,
+                        not your hand
+                      </li>
+                      <li>
+                        dispose of any tissues you have used as soon as possible
+                        in a lined waste basket and wash your hands afterwards
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    avoid touching your eyes, nose, or mouth with unwashed hands
+                  </li>
+                </ul>
+                <h3>Cleaning</h3>
+                <p>
+                  Coronaviruses&nbsp;are one of the easiest types of viruses to
+                  kill with the appropriate disinfectant product when used
+                  according to the label directions. Health Canada has published
+                  a&nbsp;<a
+                    href="/en/health-canada/services/drugs-health-products/disinfectants/covid-19/list.html"
+                    >list of hard surface disinfectants</a
+                  >&nbsp;that are likely to be effective for use against
+                  COVID-19.
+                </p>
+                <p>
+                  Although they do not claim to kill COVID-19, cleaners can play
+                  a role in limiting the transfer of microorganisms. Health
+                  Canada recommends cleaning high-touch hard surfaces often,
+                  using either regular household cleaners or diluted bleach
+                  according to the label directions. This bleach solution should
+                  be prepared according to the instructions on the label or in a
+                  ratio of 250 mL (1 cup) of water per 5 mL (1 teaspoon) of
+                  bleach. Directions are based on bleach that is 5% sodium
+                  hypochlorite, to give a 0.1% sodium hypochlorite solution.
+                  Never mix bleach with other chemical products and use it in a
+                  well-ventilated area.
+                  <a
+                    href="/en/health-canada/services/home-safety/household-chemical-safety.html"
+                    >Special precautions</a
+                  >
+                  must be used when cleaning with bleach to avoid serious
+                  incidents.
+                </p>
+                <p>These surfaces include:</p>
+                <ul>
+                  <li>toilets</li>
+                  <li>phones</li>
+                  <li>electronics</li>
+                  <li>door handles</li>
+                  <li>bedside tables</li>
+                  <li>television remotes</li>
+                </ul>
+                <p>
+                  Refer to the
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/cleaning-disinfecting.html"
+                    >guidance on cleaning and disinfecting public spaces</a
+                  >
+                  for more information.
+                </p>
+                <h3 id="wm">Wearing masks or face coverings</h3>
+                <p>
+                  Medical masks, including surgical, medical procedure face
+                  masks and respirators (like N95 masks), must be kept for
+                  health care workers and others providing direct care to
+                  COVID-19 patients.
+                </p>
+                <p>
+                  Wearing a non-medical mask or face covering while out in
+                  public is <strong>recommended</strong> for periods of time
+                  when it is not possible to consistently maintain a 2-metre
+                  physical distance from others, particularly in crowded public
+                  settings, such as:
+                </p>
+                <ul>
+                  <li>stores</li>
+                  <li>shopping areas</li>
+                  <li>public transportation</li>
+                </ul>
+                <p>
+                  Public health officials will make recommendations based on a
+                  number of factors, including the rates of infection and/or
+                  transmission in the community. Recommendations may vary from
+                  location to location.
+                </p>
+                <p>If you do choose to wear one, refer to the:</p>
+                <ul>
+                  <li>
+                    <a
+                      href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/about-non-medical-masks-face-coverings.html"
+                      >guidelines on wearing non-medical masks and how to make
+                      your own</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="http://www.phn-rsp.ca/sac-covid-ccs/index-eng.php"
+                      rel="external"
+                      >COVID-19 Special Advisory Committee</a
+                    >'s recommendations on the
+                    <a
+                      href="http://www.phn-rsp.ca/sac-covid-ccs/wearing-masks-community-eng.php"
+                      rel="external"
+                      >use of non-medical cloth masks or face coverings in
+                      community settings</a
+                    >
+                  </li>
+                </ul>
+                <p>
+                  Masks alone will not prevent the spread of COVID-19. You must
+                  consistently and strictly adhere to
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#hygiene"
+                    >good hygiene</a
+                  >
+                  and
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#p"
+                    >public health measures</a
+                  >, including frequent
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/reduce-spread-covid-19-wash-your-hands.html"
+                    >hand washing</a
+                  >
+                  and
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/social-distancing.html"
+                    >physical (social) distancing</a
+                  >.
+                </p>
+              </div>
+              <!-- Panel 2 -->
+              <!-- Panel 3 -->
+              <div class="tab-pane fade" id="panel33" role="tabpanel">
+                <h2 id="r">Risks of getting coronavirus</h2>
+                <p>
+                  COVID-19 is a serious health threat, and the situation is
+                  evolving daily. The risk will vary between and within
+                  communities, but given the increasing number of cases in
+                  Canada, the risk to Canadians is considered
+                  <strong>high</strong>.
+                </p>
+                <p>
+                  This does not mean that all Canadians will get the disease. It
+                  means that there is already a significant impact on our health
+                  care system. If we do not flatten the epidemic curve now, the
+                  increase of COVID-19 cases could impact health care resources
+                  available to Canadians.
+                </p>
+                <p>
+                  The risk for COVID-19 may be increased for certain settings
+                  such as:
+                </p>
+                <ul>
+                  <li>
+                    <a
+                      href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice.html#cruise"
+                      >cruise ships</a
+                    >
+                  </li>
+                  <li>
+                    crowded areas (such as public transit and shopping centres)
+                  </li>
+                  <li>
+                    gatherings (spiritual and cultural settings, theatres,
+                    sports arenas, festivals and conferences)
+                  </li>
+                </ul>
+                <h3>Check if you have been exposed</h3>
+                <p>
+                  Have you been on a recent flight, cruise, train, or at a
+                  public gathering? Check the listed
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice/exposure-flights-cruise-ships-mass-gatherings.html"
+                    >exposure locations</a
+                  >
+                  to see if you may have been exposed to COVID-19.
+                </p>
+                <h3>Vulnerable populations</h3>
+                <p>
+                  There is an increased risk of more severe outcomes for
+                  Canadians:
+                </p>
+                <ul>
+                  <li>aged 65 and over</li>
+                  <li>with compromised immune systems</li>
+                  <li>with underlying medical conditions</li>
+                </ul>
+                <p>
+                  People who fall into these categories as
+                  <a
+                    href="/en/public-health/services/publications/diseases-conditions/vulnerable-populations-covid-19.html"
+                    >vulnerable populations</a
+                  >
+                  should reconsider attending gatherings. This includes large
+                  gatherings and even smaller events in crowded or enclosed
+                  settings.
+                </p>
+                <p>
+                  If you have
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms.html#s"
+                    >symptoms</a
+                  >, do not attend a mass gathering, event or places where
+                  people gather. You could put someone whose health is
+                  vulnerable at risk.
+                </p>
+
+                <h3 id="travellers">Travellers</h3>
+                <p>
+                  The risk for getting COVID-19 may be increased for travellers.
+                  Canadians are advised to
+                  <a
+                    href="https://travel.gc.ca/travelling/health-safety/travel-health-notices/331"
+                    >avoid all non-essential travel</a
+                  >. If you must travel, check the latest
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice.html"
+                    >travel advice</a
+                  >
+                  before you leave.
+                </p>
+                <p>
+                  We will continue to adapt our risk assessment based on the
+                  latest data available.
+                </p>
+                <h3 id="pregnant">Pregnant women</h3>
+                <p>
+                  Because COVID-19 is a new disease, we are still learning how
+                  it affects pregnant women. At this time, there is&nbsp;<strong
+                    >no evidence</strong
+                  >
+                  to suggest that pregnant women are at a greater risk for more
+                  serious outcomes related to COVID-19 or that their developing
+                  child could be negatively affected by COVID-19.
+                </p>
+                <p>
+                  You can protect yourself from becoming ill by taking the
+                  following precautions:
+                </p>
+                <ul>
+                  <li>
+                    stay home&nbsp;as much as possible, except for important
+                    medical appointments
+                  </li>
+                  <li>
+                    talk to your doctor, obstetrician or midwife&nbsp;about the
+                    possibility of telephone or videoconference appointments
+                  </li>
+                  <li>avoid unnecessary visitors&nbsp;to your home</li>
+                  <li>
+                    <a
+                      href="/en/public-health/services/publications/diseases-conditions/reduce-spread-covid-19-wash-your-hands.html"
+                      >wash your hands</a
+                    >&nbsp;often with soap and water for at least 20 seconds
+                    <ul>
+                      <li>
+                        use alcohol-based&nbsp;<a
+                          href="/en/health-canada/services/drugs-health-products/disinfectants/covid-19/hand-sanitizer.html"
+                          >hand sanitizer</a
+                        >&nbsp;if soap and water are not available
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    practise&nbsp;<a
+                      href="/en/public-health/services/publications/diseases-conditions/social-distancing.html"
+                      >physical distancing</a
+                    >&nbsp;by keeping a distance of at least 2 metres from
+                    others
+                  </li>
+                  <li>avoid touching&nbsp;your mouth, nose and eyes</li>
+                  <li>avoid crowded places and peak-hours</li>
+                  <li>make limited trips to the store for essentials</li>
+                  <li>avoid travel by public transit</li>
+                </ul>
+                <p>
+                  For more information, refer to our&nbsp;<a
+                    href="/en/public-health/services/publications/diseases-conditions/pregnancy-advise-mothers.html"
+                    >advice for mothers on pregnancy, childbirth and caring for
+                    newborns</a
+                  >.
+                </p>
+                <p>
+                  If you are pregnant and concerned about COVID-19, speak to
+                  your health care provider.
+                </p>
+                <h3 id="products">Survival of coronaviruses on surfaces</h3>
+                It is not certain how long COVID-19 survives on surfaces, but it
+                seems to behave like other coronaviruses. Preliminary
+                information on COVID-19 suggests that the virus may persist on
+                surfaces for a few hours or up to several days depending on
+                different conditions, such as:
+                <ul>
+                  <li>temperature</li>
+                  <li>type of surface</li>
+                  <li>humidity of the environment</li>
+                </ul>
+                <p>
+                  Surfaces frequently touched with hands are most likely to be
+                  contaminated, including:
+                </p>
+                <ul>
+                  <li>tables</li>
+                  <li>handrails</li>
+                  <li>doorknobs</li>
+                  <li>electronics</li>
+                  <li>countertops</li>
+                  <li>light switches</li>
+                  <li>faucet handles</li>
+                  <li>cabinet handles</li>
+                  <li>elevator buttons</li>
+                </ul>
+                <p>
+                  Products shipped within or from outside of Canada could also
+                  be contaminated. However, because parcels generally take days
+                  or weeks to be delivered, and are shipped at room temperature,
+                  the risk of spread is <strong>low</strong>. There is no known
+                  risk of coronaviruses entering Canada on parcels or packages.
+                </p>
+                <p>
+                  To protect yourself from COVID-19, make sure to do the
+                  following when handling products shipped within or outside of
+                  Canada:
+                </p>
+                <ul>
+                  <li>
+                    use good
+                    <a
+                      href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#hygiene"
+                      >hygiene measures</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/en/health-canada/services/drugs-health-products/disinfectants/covid-19.html"
+                      >regularly clean and disinfect surfaces</a
+                    >
+                  </li>
+                  <li>do not touch your eyes, nose and mouth</li>
+                </ul>
+                <h3 id="food">Food</h3>
+                <p>
+                  There is currently no evidence to suggest that food is a
+                  likely source or route of transmission of the virus and there
+                  are currently no reported cases of COVID-19 transmission
+                  through food. People are unlikely to be infected with the
+                  virus through food.
+                </p>
+                <p>
+                  Scientists and food safety authorities across the world are
+                  closely monitoring the spread of COVID-19.
+                </p>
+                <p>
+                  If we become aware of a potential food safety risk,
+                  appropriate actions will be taken to ensure the safety of
+                  Canada's food supply.
+                </p>
+                <p>
+                  Coronaviruses are killed by
+                  <a
+                    href="/en/health-canada/services/general-food-safety-tips/food-safety-you.html#a2"
+                    >common cleaning and disinfection methods</a
+                  >
+                  and by cooking food to
+                  <a
+                    href="/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"
+                    >safe internal temperatures</a
+                  >.
+                </p>
+                <p>
+                  Learn more about&nbsp;<a
+                    href="/en/health-canada/services/food-nutrition/food-safety/covid19.html"
+                    >food safety</a
+                  >
+                  and
+                  <a
+                    href="/en/health-canada/services/food-nutrition/healthy-eating/covid-19.html"
+                    >healthy eating</a
+                  >
+                  during the COVID-19 pandemic.
+                </p>
+                <h3 id="animal-canada">Animals in Canada</h3>
+                <p>
+                  The current spread of COVID-19 is a result of human-to-human
+                  transmission. There is no evidence to suggest that animals
+                  infected by humans are playing a role in the spread of this
+                  disease. Animals and COVID-19 is an area that continues to be
+                  studied by scientists.
+                </p>
+                <p>
+                  Learn how to
+                  <a
+                    href="/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/animals-covid-19.html"
+                    >keep pets and livestock, as well as yourself, safe</a
+                  >
+                  during the COVID-19 pandemic.
+                </p>
+              </div>
+              <!-- Panel 3 -->
             </div>
           </div>
-          <!-- Nav tabs -->
-      
         </div>
-  
+        <!-- Nav tabs -->
+      </div>
     </div>
     <!-- Panel 2 -->
-  </div>
-  </div>
-  <!-- Tab panels -->
 
-
-
-  
-
-</body>
+    <!-- Tab panels -->
+  </body>
 </html>

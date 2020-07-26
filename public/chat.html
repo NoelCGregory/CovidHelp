@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <script src="js/app.js"></script>
     <script src="js/home.js"></script>
     <script src="js/authState.js"></script>
-   <!-- Font Awesome -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- Google Fonts -->
@@ -16,82 +17,90 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-<body>
-     <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
-    <!-- Navbar brand -->
-    <a class="navbar-brand" href="">| CovidHelp</a>
-  
-    <!-- Collapse button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="basicExampleNav">
-  
-      <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="home.html">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="chat.html">Chat</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-  
-      </ul>
-      <!-- Links -->
-    </div>
-    <!-- Collapsible content -->
-  </nav>
-  <!--/.Navbar-->
-  <div class="center">
-  <div class="container">
-    <div class="card grey lighten-3 chat-room">
-        <div class="card-body">
-      
-          <!-- Grid row -->
-          <div class="row px-lg-2 px-2">
-      
-            <!-- Grid column -->
-            <div class="col-md-6 col-xl-8 pl-md-3 px-lg-auto px-0">
-      
-              <div class="chat-message">
-      
-                <ul class="list-unstyled chat">
-                    <div id="scrollview"class="my-custom-scrollbar my-custom-scrollbar-primary">
-                       
-                      </div>
-                  <li class="white">
-                    <div class="form-group basic-textarea">
-                       <input type="text" class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="3" placeholder="Type your message here..."></input>
-                    </div>
-                  </li>
-                  <button type="button" onclick="sendToDatabase();" class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Send</button>
-                </ul>
-      
-              </div>
-      
-            </div>
-            <!-- Grid column -->
-      
-          </div>
-          <!-- Grid row -->
-      
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="">| CovidHelp</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="chat.html">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+            <!-- Links -->
         </div>
-      </div>
-  </div>
-  </div>
-  
-<script src="js/chat.js"></script>
+        <!-- Collapsible content -->
+        <form class="form-inline my-1">
+            <button class="btn btn-outline-white btn-sm my-0" onclick="logout();" type="submit">Logout</button>
+        </form>
+    </nav>
+    <!--/.Navbar-->
+    <div class="center">
+        <div class="container">
+            <div class="card grey lighten-3 chat-room">
+                <div class="card-body">
+
+                    <!-- Grid row -->
+                    <div class="row px-lg-2 px-2">
+
+                        <!-- Grid column -->
+                        <div class="col-md-6 col-xl-8 pl-md-3 px-lg-auto px-0">
+
+                            <div class="chat-message">
+
+                                <ul class="list-unstyled chat">
+                                    <div id="scrollview" class="my-custom-scrollbar my-custom-scrollbar-primary">
+
+                                    </div>
+                                    <li class="white">
+                                        <div class="form-group basic-textarea">
+                                            <input type="text" class="form-control pl-2 my-0"
+                                                id="exampleFormControlTextarea2" rows="3"
+                                                placeholder="Type your message here..."></input>
+                                        </div>
+                                    </li>
+                                    <button type="button" onclick="sendToDatabase();"
+                                        class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Send</button>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chat.js"></script>
 </body>
+
 </html>
