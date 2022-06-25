@@ -13,7 +13,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "i18n-iso-countries": "^6.0.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "unirest": "^0.6.0"
   }
 }
